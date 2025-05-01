@@ -63,5 +63,4 @@ if __name__ == '__main__':
         exit(1)
     context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
     context.load_cert_chain(ssl_cert, ssl_key)
-    # app.run(host='0.0.0.0', port=PORT, ssl_context=context)
-    app.run(host='0.0.0.0', port=PORT)
+    app.run(host='0.0.0.0', port=PORT, ssl_context=context)

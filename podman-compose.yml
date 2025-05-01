@@ -9,6 +9,6 @@ services:
     environment:
       - PORT=3000
       - SSL_KEY_PATH=certs/server.key
-      - SSL_CERT_PATH=certs/server.cert 
+      - SSL_CERT_PATH=certs/server.cert
     devices:
       - "nvidia.com/gpu=all"
