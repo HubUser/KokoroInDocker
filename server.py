@@ -1,5 +1,7 @@
 import os
+import signal
 import ssl
+import sys
 import tempfile
 from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
@@ -54,6 +56,13 @@ def index():
       </body>
     </html>
     '''
+
+def signal_handler(sig, frame):
+    print("\nShutting down gracefully...", file=sys.stderr)
+    sys.exit(0)
+
+signal.signal(signal.SIGTERM, signal_handler)
+signal.signal(signal.SIGINT, signal_handler)
 
 if __name__ == '__main__':
     ssl_key = os.environ.get('SSL_KEY_PATH', 'certs/server.key')

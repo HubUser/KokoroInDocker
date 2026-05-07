@@ -4,7 +4,7 @@
 mkdir -p certs
 
 # Generate self-signed certificates
-openssl req -x509 -nodes -days 365 -new \
+openssl req -x509 -nodes -days 365 -new -batch \
     -keyout certs/server.key -out certs/server.cert \
     -config ./openssl.cnf -extensions 'v3_ca'
 
